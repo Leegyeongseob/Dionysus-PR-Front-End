@@ -153,7 +153,8 @@ const IconImg = styled.img`
 
 // CommonBox 스타일 컴포넌트 정의
 const CommonBox = styled.div`
-  position: ${({ showRecommend2 }) => (showRecommend2 ? "absolute" : "relative")};
+  position: ${({ showRecommend2 }) =>
+    showRecommend2 ? "absolute" : "relative"};
   display: flex;
   flex-direction: column;
 `;
@@ -236,95 +237,103 @@ const Recommend = () => {
       <ThemeContainer>
         {showMenu && ( // showMenu가 true이면
           <CommonBox>
-            <Menu selectedMenu={selectedMenu} setShowMenu={setShowMenu} /> {/* Menu 컴포넌트 */}
+            <Menu selectedMenu={selectedMenu} setShowMenu={setShowMenu} />{" "}
+            {/* Menu 컴포넌트 */}
           </CommonBox>
         )}
         {showRecommend2 ? ( // showRecommend2가 true이면
           <CommonBox>
-            <ButtonItem onClick={handleCloseRecommend2}>Close</ButtonItem> {/* 닫기 버튼 */}
-            <Recommend2 selectedIcon={selectedIcon} /> {/* Recommend2 컴포넌트 */}
+            <ButtonItem onClick={handleCloseRecommend2}>Close</ButtonItem>{" "}
+            {/* 닫기 버튼 */}
+            <Recommend2 selectedIcon={selectedIcon} />{" "}
+            {/* Recommend2 컴포넌트 */}
           </CommonBox>
         ) : (
           <>
-            {[0, 1, 2].map((index) => ( // 3개의 테마 아이템을 반복 렌더링
-              <ThemeItem
-                showMenu={showMenu}
-                key={index}
-                onClick={() => toggleSize(index)} // 클릭 시 테마 아이템 크기 토글
-                isBig={isBig === index} // 현재 확대된 상태인지 확인
-              >
-                <Wrapper>
-                  <ItemTitle
-                    bgColor={
-                      [
-                        "rgba(112, 101, 19, 0.8)",
-                        "rgba(182, 113, 20, 0.8)",
-                        "rgba(82, 1, 33, 0.8)",
-                      ][index]
-                    }
-                  >
-                    <ItemTitleText isBig={index}>
-                      {
+            {[0, 1, 2].map(
+              (
+                index // 3개의 테마 아이템을 반복 렌더링
+              ) => (
+                <ThemeItem
+                  showMenu={showMenu}
+                  key={index}
+                  onClick={() => toggleSize(index)} // 클릭 시 테마 아이템 크기 토글
+                  isBig={isBig === index} // 현재 확대된 상태인지 확인
+                >
+                  <Wrapper>
+                    <ItemTitle
+                      bgColor={
                         [
-                          "기분에 따른 추천",
-                          "날씨에 따른 추천",
-                          "음식에 따른 추천",
+                          "rgba(112, 101, 19, 0.8)",
+                          "rgba(182, 113, 20, 0.8)",
+                          "rgba(82, 1, 33, 0.8)",
                         ][index]
                       }
-                    </ItemTitleText>
-                  </ItemTitle>
-                  {isBig === index ? ( // 현재 아이템이 확대된 상태인지 확인
-                    <RecommendIconDiv>
-                      {index === 0 ? ( // 기분에 따른 추천 아이콘
-                        ["기쁨", "슬픔", "화남", "사랑"].map((iconName) => (
-                          <IconBox key={iconName}>
-                            <IconImg
-                              src={getIconImagePath(iconName)}
-                              onClick={() => handleIconClick(iconName)} // 아이콘 클릭 핸들러
-                            />
-                          </IconBox>
-                        ))
-                      ) : index === 1 ? ( // 날씨에 따른 추천 아이콘
-                        <>
-                          <DisplayWeather /> {/* DisplayWeather 컴포넌트 */}
-                          {["맑음", "흐림", "비", "눈"].map((iconName) => (
+                    >
+                      <ItemTitleText isBig={index}>
+                        {
+                          [
+                            "기분에 따른 추천",
+                            "날씨에 따른 추천",
+                            "음식에 따른 추천",
+                          ][index]
+                        }
+                      </ItemTitleText>
+                    </ItemTitle>
+                    {isBig === index ? ( // 현재 아이템이 확대된 상태인지 확인
+                      <RecommendIconDiv>
+                        {index === 0 ? ( // 기분에 따른 추천 아이콘
+                          ["기쁨", "슬픔", "화남", "사랑"].map((iconName) => (
                             <IconBox key={iconName}>
                               <IconImg
                                 src={getIconImagePath(iconName)}
                                 onClick={() => handleIconClick(iconName)} // 아이콘 클릭 핸들러
                               />
                             </IconBox>
-                          ))}
-                        </>
-                      ) : ( // 음식에 따른 추천 아이콘
-                        ["한식", "일식", "양식", "중식"].map((iconName) => (
-                          <IconBox key={iconName}>
-                            <IconImg
-                              src={getIconImagePath(iconName)}
-                              onClick={() => handleMenuIconClick(iconName)} // 메뉴 아이콘 클릭 핸들러
-                            />
-                          </IconBox>
-                        ))
-                      )}
-                    </RecommendIconDiv>
-                  ) : (
-                    <RecommendIconDiv>
-                      <ThemeItemImage
-                        src={getBackgroundImagePath(index)} // 배경 이미지 경로
-                        alt="배경 이미지"
-                      />
-                    </RecommendIconDiv>
-                  )}
-                </Wrapper>
-              </ThemeItem>
-            ))}
+                          ))
+                        ) : index === 1 ? ( // 날씨에 따른 추천 아이콘
+                          <>
+                            <DisplayWeather /> {/* DisplayWeather 컴포넌트 */}
+                            {["맑음", "흐림", "비", "눈"].map((iconName) => (
+                              <IconBox key={iconName}>
+                                <IconImg
+                                  src={getIconImagePath(iconName)}
+                                  onClick={() => handleIconClick(iconName)} // 아이콘 클릭 핸들러
+                                />
+                              </IconBox>
+                            ))}
+                          </>
+                        ) : (
+                          // 음식에 따른 추천 아이콘
+                          ["한식", "일식", "양식", "중식"].map((iconName) => (
+                            <IconBox key={iconName}>
+                              <IconImg
+                                src={getIconImagePath(iconName)}
+                                onClick={() => handleMenuIconClick(iconName)} // 메뉴 아이콘 클릭 핸들러
+                              />
+                            </IconBox>
+                          ))
+                        )}
+                      </RecommendIconDiv>
+                    ) : (
+                      <RecommendIconDiv>
+                        <ThemeItemImage
+                          src={getBackgroundImagePath(index)} // 배경 이미지 경로
+                          alt="배경 이미지"
+                        />
+                      </RecommendIconDiv>
+                    )}
+                  </Wrapper>
+                </ThemeItem>
+              )
+            )}
           </>
         )}
       </ThemeContainer>
       <TitleDiv>
         <p>인기주류 Top 10!</p> {/* 인기 주류 Top 10 제목 */}
       </TitleDiv>
-      <Common /> {/* Common 컴포넌트 */}
+      <Common toplist={true} /> {/* Common 컴포넌트 */}
     </Container>
   );
 };
