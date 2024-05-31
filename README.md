@@ -8,3 +8,96 @@
 - 전통주, 와인, 위스키, 맥주, 인기 있는 주류 조회
 - 개인에게 맞는 주류를 추천
 
+# 2. 개발 환경
+
+# 3.  🤼*역할* 🤼‍♂️
+
+### 👑이경섭👑 - SM(Scrum Master)
+
+- 일정 기획 & 회의 주관
+- 설계 및 구현 가이드
+- DB 설계
+- Front End, Back End - 메인 페이지, 페이지 연결, 주류 리스트
+- FireBase 프로필 사진 추가
+- FeedBack
+
+### 🤡박성진🤡 - DT(Development Team)
+
+- 스토리보드 - 레이아웃
+- Front End, Back End - 주류 추천 컴포넌트, 날씨 Api
+- Rest API
+- FeedBack
+
+### 🕊︎강인구🕊︎ - PO(Product Owner)
+
+- 데이터 수집 & 추가
+- DB 데이터 추가
+- Front End, Back End - 로그인 페이지
+- 로봇이 아닙니다. Api
+- Rest API
+- FeedBack
+
+### 🪖김세호🪖 - DT(Development Team)
+
+- 문서 정리 & 노션 관리
+- 초기 데이터 추가 & 정리
+- Front End, Back End - 마이페이지
+- Rest API
+- TEST
+
+# 4. 🗓️*일정* 🗓️
+
+[Agile Scrum](https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
+
+[Sprint Scheduler](https://docs.google.com/spreadsheets/d/1PHxGOc3YHsZqQTuzGfzHkA2f34ExoHbKAJ8qmyVLs-0/edit#gid=1115838130)
+
+---
+# 5 . 📚전체 데이터 스프레드시트📚
+
+[](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
+
+
+## Data
+
+- 술 정보
+    
+    [Wine Dataset](https://www.kaggle.com/datasets/elvinrustam/wine-dataset?select=WineDataset.csv)
+    
+    [문화빅데이터 플랫폼](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=0853628f-1747-4bda-b568-264305728a8e)
+    
+    [[사케마츠리] 히란 니코마루 QUEEN 720미리 日鸞 にこまる QUEEN 720ml](https://sake4ke.com/products/detail/5061#)
+    
+    [(주)에스엠바로코사부산](http://b2bsmglobal.com/sub/product_list.php?p_code=11)
+    
+    [월드비어마켓](https://worldbeermarket.kr/)
+    
+    [벨루가 - 주류 정보 플랫폼](https://business.veluga.kr/)
+    
+
+## UI 참고
+
+[Lotte Wine](https://www.wine.co.kr/search/wine-search)
+
+[전체와인 - 와인21닷컴](https://www.wine21.com/13_search/wine_list.html)
+
+[미스터와인 와인샵](https://mr-wine.co.kr/)
+
+[LET'S DO WINE - 레츠두 와인](https://www.letsdowine.co.kr/?NaPm=ct=lvw4pqag|ci=0za00017TxzAIReSleW-|tr=sa|hk=01e9954370691f1cbb8a87b10ad08802fa90785d)
+
+## 스토리 보드
+
+![캡처](https://github.com/Leegyeongseob/Dionysus-PR-Front-End/assets/67867076/3d1ba99a-ab2f-4f22-9f77-b26c72de2990)
+
+## 구현영상
+
+
+
+## 피드백
+
+- 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
+- 
+- 1차 스프린트 : 기본적인 기능, 백엔드 구축, UI 구축 및 통신으로 홈페이지의 형태를 갖추는게 목표였습니다.
+
+- 2차 스프린트 : 세부적인 기능 및 날씨 Api, Recaptcha(로봇이 아닙니다.) APi를 사용해서 구현하는게 목표였습니다.
+
+- 3차 스프린트에서는 네트워크 에러(400,404,500 등)의 페이지 구현 및 보안관련 처리를 하는 것이 목표였습니다.
