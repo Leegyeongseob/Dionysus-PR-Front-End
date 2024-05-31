@@ -10,6 +10,7 @@
 
 # 2. 개발 환경
 
+
 # 3.  🤼*역할* 🤼‍♂️
 
 ### 👑이경섭👑 - SM(Scrum Master)
@@ -57,21 +58,20 @@
 [](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
 
 
-## Data
+## 술 Data
 
-- 술 정보
     
-    [Wine Dataset](https://www.kaggle.com/datasets/elvinrustam/wine-dataset?select=WineDataset.csv)
+[Wine Dataset](https://www.kaggle.com/datasets/elvinrustam/wine-dataset?select=WineDataset.csv)
     
-    [문화빅데이터 플랫폼](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=0853628f-1747-4bda-b568-264305728a8e)
+[문화빅데이터 플랫폼](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=0853628f-1747-4bda-b568-264305728a8e)
     
-    [[사케마츠리] 히란 니코마루 QUEEN 720미리 日鸞 にこまる QUEEN 720ml](https://sake4ke.com/products/detail/5061#)
+[[사케마츠리] 히란 니코마루 QUEEN 720미리 日鸞 にこまる QUEEN 720ml](https://sake4ke.com/products/detail/5061#)
     
-    [(주)에스엠바로코사부산](http://b2bsmglobal.com/sub/product_list.php?p_code=11)
+[(주)에스엠바로코사부산](http://b2bsmglobal.com/sub/product_list.php?p_code=11)
     
-    [월드비어마켓](https://worldbeermarket.kr/)
+[월드비어마켓](https://worldbeermarket.kr/)
     
-    [벨루가 - 주류 정보 플랫폼](https://business.veluga.kr/)
+[벨루가 - 주류 정보 플랫폼](https://business.veluga.kr/)
     
 
 ## UI 참고
@@ -95,7 +95,7 @@
 ## 피드백
 
 - 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
-- 
+  
 - 1차 스프린트 : 기본적인 기능, 백엔드 구축, UI 구축 및 통신으로 홈페이지의 형태를 갖추는게 목표였습니다.
 
 - 2차 스프린트 : 세부적인 기능 및 날씨 Api, Recaptcha(로봇이 아닙니다.) APi를 사용해서 구현하는게 목표였습니다.
