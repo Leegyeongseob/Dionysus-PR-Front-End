@@ -190,7 +190,9 @@ const SignupPage = () => {
         setIsEmail(false);
       }
     } catch (error) {
-      console.log("아씨팔 에러");
+      setPasswordError(
+        "네트워크 오류입니다. 잠시후 다시 시도해주세요."
+      );
     }
   };
   // 주민등록번호 DB 등록여부 확인

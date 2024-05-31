@@ -3,7 +3,6 @@ import ReactModal from "react-modal";
 import styles from "../style/loginstyle/ModalApi.module.css";
 import { BiSolidDrink } from "react-icons/bi"; // 성공 이미지
 import { MdNoDrinks } from "react-icons/md"; // 실패 이미지
-import { FaPlugCircleXmark } from "react-icons/fa6"; // 네트워크 연결 오류이미지
 const ModalApi = {
   SuccessModal: ({ isOpen, onClose, modalTitle, modalText }) => {
     useEffect(() => {
