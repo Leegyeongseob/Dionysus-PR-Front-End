@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import logo from "../../img/mainpageimg/logo/logo1.jpeg";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../../global/UserStore";
 import traditional from "../../img/mainpageimg/background/traditional.jpg";
 import beer from "../../img/mainpageimg/background/beer.jpg";
@@ -287,7 +287,7 @@ const ProfileImg = styled.div`
     border-radius: 50%;
   }
 `;
-const Header = ({ scrollexist = false }) => {
+const Header = ({ logoRef, scrollexist = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // 사이드바 메뉴 열기/닫기
   const context = useContext(UserContext); //useContext 불러와서 변수로 선언
   const { setBgimgurl, setCategory } = context; // 컬러와 이름을 전역 상태 관리에서 가져 옴
@@ -295,6 +295,7 @@ const Header = ({ scrollexist = false }) => {
   const userid = sessionStorage.getItem("user_id"); // 저장된 아이디 불러옴.
   const username = sessionStorage.getItem("user_name"); // 저장된 이름 불러옴.
   const proflieurl = sessionStorage.getItem("profile_url"); // 저장된 파이어베이스 url 불러옴.
+  console.log("Logo received logoRef:", logoRef);
   //사이드바를 열고 닫는 함수
   const onClickLeft = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -310,7 +311,7 @@ const Header = ({ scrollexist = false }) => {
       <HeaderContainer>
         <DivHeader>
           <Link to="/">
-            <Logo $logourl={logo} id="logo" />
+            <Logo ref={logoRef} $logourl={logo} />
           </Link>
           <Nav>
             <Item>

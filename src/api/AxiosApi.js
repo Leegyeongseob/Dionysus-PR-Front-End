@@ -1,5 +1,5 @@
 import axios from "axios";
-const DOMAIN = "http://192.168.10.26:8111";
+const DOMAIN = "http://localhost:8111";
 
 const AxiosApi = {
   // 회원 가입 여부 확인

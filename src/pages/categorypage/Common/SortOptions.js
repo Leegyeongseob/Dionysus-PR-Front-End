@@ -26,7 +26,6 @@ const Sort = styled.div`
 `;
 //정렬버튼(정렬조건, 조건결과,화면에 보여줄지)
 const SortOptions = ({ sortBy, setSortBy, toplist }) => {
-  console.log(toplist);
   return (
     <Sort toplist={toplist}>
       <Label>Sort by: </Label>

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { TfiAngleDoubleUp } from "react-icons/tfi"; // 리액트 아이콘
 import styled from "styled-components";
 
@@ -27,11 +26,11 @@ const ScrollContainer = styled.div`
   }
 `;
 
-function TopButton() {
+const TopButton = ({ logoRef }) => {
   const scrollToLogo = () => {
-    const element = document.getElementById("logo");
-    if (element) {
-      element.scrollIntoView({
+    // 위치 값이 존재하면
+    if (logoRef.current) {
+      logoRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -45,6 +44,6 @@ function TopButton() {
       </button>
     </ScrollContainer>
   );
-}
+};
 
 export default TopButton;
