@@ -72,7 +72,7 @@
     
 [문화빅데이터 플랫폼](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=0853628f-1747-4bda-b568-264305728a8e)
     
-[사케전문샾](**https://sake4ke.com/products/detail/5061#**)
+[사케전문샾](https://sake4ke.com/products/detail/5061#)
     
 [(주)에스엠바로코사부산](http://b2bsmglobal.com/sub/product_list.php?p_code=11)
     
