@@ -45,7 +45,7 @@
 - Rest API
 - FeedBack
 
-### 🪖김세호🪖 - DT(Development Team)
+### 🧙🏻‍♀️김세호🧙🏻‍♀️ - DT(Development Team)
 
 - 문서 정리 & 노션 관리
 - 초기 데이터 추가 & 정리
@@ -65,7 +65,7 @@
 [Data Sheet](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
 
 
-## 술 Data
+## 🍸술 Data🍸
 
     
 [Wine Dataset](https://www.kaggle.com/datasets/elvinrustam/wine-dataset?select=WineDataset.csv)
@@ -81,7 +81,7 @@
 [벨루가 - 주류 정보 플랫폼](https://business.veluga.kr/)
     
 
-## UI 참고
+## ❄️UI 참고❄️
 
 [Lotte Wine](https://www.wine.co.kr/search/wine-search)
 
@@ -91,15 +91,15 @@
 
 [LET'S DO WINE - 레츠두 와인](https://www.letsdowine.co.kr/?NaPm=ct=lvw4pqag|ci=0za00017TxzAIReSleW-|tr=sa|hk=01e9954370691f1cbb8a87b10ad08802fa90785d)
 
-# 6. 스토리 보드
+# 6. 🌈스토리 보드🌈
 
 ![캡처](https://github.com/Leegyeongseob/Dionysus-PR-Front-End/assets/67867076/3d1ba99a-ab2f-4f22-9f77-b26c72de2990)
 
-# 7. 구현영상
+# 7. 💽구현영상💽
 
 [웹페이지 구현영상](https://www.notion.so/8ffe157fad7d422aae2f80bed49d82be)
 
-# 8. 피드백
+# 8. 🎉피드백🎉
 
 - 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
   
