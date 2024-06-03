@@ -55,14 +55,14 @@
 
 # 4. 🗓️*일정* 🗓️
 
-[Agile_Scrum] (https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
+[Agile_Scrum](https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
 
 [Sprint Scheduler](https://docs.google.com/spreadsheets/d/1PHxGOc3YHsZqQTuzGfzHkA2f34ExoHbKAJ8qmyVLs-0/edit#gid=1115838130)
 
 ---
 # 5 . 📚전체 데이터 스프레드시트📚
 
-[](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
+[Sprint Scadule](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
 
 
 ## 술 Data
