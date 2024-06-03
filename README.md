@@ -55,7 +55,7 @@
 
 # 4. 🗓️*일정* 🗓️
 
-[Agile Scrum](https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
+[Agile_Scrum] (https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
 
 [Sprint Scheduler](https://docs.google.com/spreadsheets/d/1PHxGOc3YHsZqQTuzGfzHkA2f34ExoHbKAJ8qmyVLs-0/edit#gid=1115838130)
 
