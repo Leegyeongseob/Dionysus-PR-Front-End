@@ -1,6 +1,6 @@
-# 1. 주제
+# 1. 🍺주제
 
-### 디오니소스 : 주류 추천 사이트
+### 🍇디오니소스 : 주류 추천 사이트🍇
 
 ---
 
@@ -8,7 +8,7 @@
 - 전통주, 와인, 위스키, 맥주, 인기 있는 주류 조회
 - 개인에게 맞는 주류를 추천
 
-# 2. 개발 환경
+# 2. 🤸🏻‍♀️개발 환경🤸🏻‍♀️
 
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 
@@ -91,15 +91,15 @@
 
 [LET'S DO WINE - 레츠두 와인](https://www.letsdowine.co.kr/?NaPm=ct=lvw4pqag|ci=0za00017TxzAIReSleW-|tr=sa|hk=01e9954370691f1cbb8a87b10ad08802fa90785d)
 
-## 스토리 보드
+# 6. 스토리 보드
 
 ![캡처](https://github.com/Leegyeongseob/Dionysus-PR-Front-End/assets/67867076/3d1ba99a-ab2f-4f22-9f77-b26c72de2990)
 
-## 구현영상
+# 7. 구현영상
 
 
 
-## 피드백
+# 8. 피드백
 
 - 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
   
