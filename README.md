@@ -97,7 +97,7 @@
 
 # 7. 구현영상
 
-
+[웹페이지 구현영상](https://www.notion.so/8ffe157fad7d422aae2f80bed49d82be)
 
 # 8. 피드백
 
