@@ -97,7 +97,7 @@
 
 # 7. 💽구현영상💽
 
-[웹페이지 구현영상]([https://www.notion.so/8ffe157fad7d422aae2f80bed49d82be](https://www.canva.com/design/DAGIGgLadUo/cBSiDYj-z-vju3t9kYLUhA/watch?utm_content=DAGIGgLadUo&utm_campaign=designshare&utm_medium=link&utm_source=editor))
+[웹페이지 구현영상](https://www.canva.com/design/DAGIGgLadUo/cBSiDYj-z-vju3t9kYLUhA/watch?utm_content=DAGIGgLadUo&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 # 8. 🎉피드백🎉
 
