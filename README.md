@@ -97,8 +97,7 @@
 
 # 7. 💽구현영상💽
 
-[웹페이지 구현영상][(https://www.canva.com/design/DAGIGgLadUo/cBSiDYj-z-vju3t9kYLUhA/watch?utm_content=DAGIGgLadUo&utm_campaign=designshare&utm_medium=link&utm_source=editor)
-](https://www.canva.com/design/DAGIGgLadUo/cBSiDYj-z-vju3t9kYLUhA/watch?utm_content=DAGIGgLadUo&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+[웹페이지 구현영상](https://www.canva.com/design/DAGIGgLadUo/cBSiDYj-z-vju3t9kYLUhA/watch?utm_content=DAGIGgLadUo&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 # 8. 🎉피드백🎉
 
 - 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
