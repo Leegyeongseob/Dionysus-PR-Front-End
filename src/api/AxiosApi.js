@@ -2,6 +2,29 @@ import axios from "axios";
 const DOMAIN = "http://localhost:8111";
 
 const AxiosApi = {
+  // 로그인
+  login: async (email, password)=> {
+    return await axios.post(
+      DOMAIN +`/users/login`, {
+        USER_ID: email,
+        USER_PW: password,
+      }
+    )
+  },
+  //회원가입
+  signup: async (email, password, userName, jumin, nickName, phone, address)=>{
+    return await axios.post(
+      DOMAIN +`/users/signup`, {
+        user_id: email,
+        user_pw: password,
+        user_name: userName,
+        user_jumin: jumin,
+        user_nick: nickName,
+        user_phone: phone,
+        user_address: address,
+      }
+    )
+  },
   // 회원 가입 여부 확인
   memberRegCheck: async (email) => {
     return await axios.get(DOMAIN + `/users/check?USER_ID=${email}`);

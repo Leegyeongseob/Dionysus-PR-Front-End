@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "./BackButton";
-import axios from "axios";
 import AxiosApi from "../../api/AxiosApi";
 import { documentId } from "firebase/firestore";
 import ReactModal from "react-modal"; // 모달 적용부분
@@ -275,64 +274,60 @@ const SignupPage = () => {
     setAddress(e.target.value);
     setIsAddress(true);
   };
-  const regist = () => {
+  const regist = async () => {
     // 가입버튼 클릭시 이벤트 처리
-    axios
-      .post("http://192.168.10.26:8111/users/signup", {
-        user_id: email,
-        user_pw: password,
-        user_name: userName,
-        user_jumin: jumin,
-        user_nick: nickName,
-        user_phone: phone,
-        user_address: address,
-      })
-      .then((response) => {
-        // Handle success.
-        setSuccessModalOpen(true); // Show success modal
-        // navigate("/");
-      })
-      .catch((error) => {
-        if (error.response) {
-          // 서버가 응답했지만 상태 코드가 2xx 범위를 벗어나는 경우
-          switch (error.response.status) {
-            case 400:
-              setModalContent("잘못된 요청입니다. 입력 값을 확인해주세요.");
-              break;
-            case 401:
-              <>
-                인증에 실패했습니다.
-                <br />
-                이메일 또는 비밀번호를 확인해주세요.
-              </>;
-              console.log();
-              break;
-            case 403:
-              setModalContent("접근 권한이 없습니다.");
-              break;
-            case 404:
-              setModalContent("서버를 찾을 수 없습니다.");
-              break;
-            case 500:
-              setModalContent(
-                "서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
-              );
-              break;
-            default:
-              setModalContent(
-                `오류가 발생했습니다: ${error.response.statusText}`
-              );
-          }
-        } else if (error.request) {
-          // 요청이 서버에 도달하지 못한 경우 (네트워크 오류 등)
-          setModalContent("서버가 응답하지 않습니다.");
-        } else {
-          // 요청을 설정하는 중에 오류가 발생한 경우
-          setModalContent(`오류가 발생했습니다: ${error.message}`);
+    if (isEmail && isPassword && isUserName && isJumin && isNickName && isPhone && isAddress) {
+      try {
+        const response = await AxiosApi.signup(email, password, userName, jumin, nickName, phone, address);
+        if (response.status === 200) {
+          setModalContent("회원가입이 완료되었습니다!");
+          setSuccessModalOpen(true);
+      }
+    } catch(error) {
+      if (error.response) {
+        // 서버가 응답했지만 상태 코드가 2xx 범위를 벗어나는 경우
+        switch (error.response.status) {
+          case 400:
+            setModalContent("잘못된 요청입니다. 입력 값을 확인해주세요.");
+            break;
+          case 401:
+            <>
+              인증에 실패했습니다.
+              <br />
+              이메일 또는 비밀번호를 확인해주세요.
+            </>;
+            console.log();
+            break;
+          case 403:
+            setModalContent("접근 권한이 없습니다.");
+            break;
+          case 404:
+            setModalContent("서버를 찾을 수 없습니다.");
+            break;
+          case 500:
+            setModalContent(
+              "서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
+            );
+            break;
+          default:
+            setModalContent(
+              `오류가 발생했습니다: ${error.response.statusText}`
+            );
         }
-        setFailModalOpen(true);
-      });
-  };
+      } else if (error.request) {
+        // 요청이 서버에 도달하지 못한 경우 (네트워크 오류 등)
+        setModalContent("서버가 응답하지 않습니다.");
+      } else {
+        // 요청을 설정하는 중에 오류가 발생한 경우
+        setModalContent(`오류가 발생했습니다: ${error.message}`);
+      }
+      setFailModalOpen(true);
+    }
+  } else {
+    setModalContent("모든 필드를 올바르게 입력해주세요.");
+    setFailModalOpen(true);
+  }
+};
   // 모든 필드의 유효성 검사를 통과했는지 확인
   const isFormValid =
     isEmail &&

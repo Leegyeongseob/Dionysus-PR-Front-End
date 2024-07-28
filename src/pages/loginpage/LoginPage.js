@@ -1,11 +1,12 @@
+//LoginPage.js
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import ReactModal from "react-modal"; // 모달 적용부분
 import ModalApi from "../../api/ModalApi";
 import styled from "styled-components";
 import personIcon from "../../img/loginpageimg/person-icon.png";
 import ReCaptchaComponenet from "../../api/RecaptchaAPI";
+import AxiosApi from "../../api/AxiosApi";
 ReactModal.setAppElement("#root");
 
 const Container = styled.div`
@@ -168,13 +169,7 @@ const LoginPage = () => {
     // 로그인 버튼클릭 이후 구현부분
     if (caution === "확인되었습니다.") {
       try {
-        const response = await axios.post(
-          "http://192.168.10.26:8111/users/login",
-          {
-            USER_ID: email,
-            USER_PW: password,
-          }
-        );
+        const response = await AxiosApi.login(email, password);
         // Handle success.
         const user = response.data[0];
         if (user) {
