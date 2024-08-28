@@ -287,6 +287,15 @@ const ProfileImg = styled.div`
     border-radius: 50%;
   }
 `;
+const UserId = styled.div`
+  width: 100%;
+  height: 20px;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: ${(props) => (props.userid ? "first baseline" : "center")};
+`;
 const Header = ({ logoRef, scrollexist = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // 사이드바 메뉴 열기/닫기
   const context = useContext(UserContext); //useContext 불러와서 변수로 선언
@@ -430,15 +439,15 @@ const Header = ({ logoRef, scrollexist = false }) => {
                     <div className="username">
                       {username && <span>{username}</span>}
                     </div>
-                    <div className="userid">
-                      {userid ? (
-                        <span>{userid}</span>
-                      ) : (
-                        <span>로그인 해주세요.</span>
-                      )}
-                    </div>
                   </div>
                 </ProfileDiv>
+                <UserId userid={userid}>
+                  {userid ? (
+                    <span>{userid}</span>
+                  ) : (
+                    <span>로그인 해주세요.</span>
+                  )}
+                </UserId>
                 <PrifileDiv2>
                   {userid ? (
                     <Link to="/mypage" style={{ textDecoration: "none" }}>

@@ -235,54 +235,52 @@ const LoginPage = () => {
     setCaptchaVerified(true);
   };
   return (
-    <>
-      <Container>
-        <Box>
-          <img src={personIcon} />
-          <input
-            id="email"
-            type="email"
-            placeholder="📧   Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="🔑   Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <div id="caution" className="caution">
-            {caution}
-          </div>
-          <p className="loginsub">
-            <Link to="/signup">Sign up</Link>
-            <Link to="/findid">Find ID /</Link>
-            <Link to="/findpw">Password</Link>
-          </p>
-          <ReCaptchaComponenet onVerify={handleCaptchaVerify} />
-          <div
-            className="finalCheck"
-            onClick={
+    <Container>
+      <Box>
+        <img src={personIcon} />
+        <input
+          id="email"
+          type="email"
+          placeholder="📧   Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="🔑   Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div id="caution" className="caution">
+          {caution}
+        </div>
+        <p className="loginsub">
+          <Link to="/signup">Sign up</Link>
+          <Link to="/findid">Find ID /</Link>
+          <Link to="/findpw">Password</Link>
+        </p>
+        <ReCaptchaComponenet onVerify={handleCaptchaVerify} />
+        <div
+          className="finalCheck"
+          onClick={
+            caution === "확인되었습니다." && captchaVerified
+              ? handleLogin
+              : null
+          }
+          style={{
+            backgroundColor:
               caution === "확인되었습니다." && captchaVerified
-                ? handleLogin
-                : null
-            }
-            style={{
-              backgroundColor:
-                caution === "확인되었습니다." && captchaVerified
-                  ? "rgba(0, 0, 0, 0.6)"
-                  : "grey",
-              disable:
-                caution === "확인되었습니다." && captchaVerified
-                  ? "false"
-                  : "true",
-            }}
-          >
-            Login
-          </div>
-        </Box>
-      </Container>
+                ? "rgba(0, 0, 0, 0.6)"
+                : "grey",
+            disable:
+              caution === "확인되었습니다." && captchaVerified
+                ? "false"
+                : "true",
+          }}
+        >
+          Login
+        </div>
+      </Box>
       <ModalApi.SuccessModal
         isOpen={SuccessModalOpen}
         onClose={handleSuccessCloseModal}
@@ -295,7 +293,7 @@ const LoginPage = () => {
         modalTitle={"로그인 실패"}
         modalText={modalContent}
       />
-    </>
+    </Container>
   );
 };
 

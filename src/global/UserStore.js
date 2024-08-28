@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import firstBackground from "../img/mainpageimg/background/all.webp";
 //useContext 생성.
 export const UserContext = createContext(null);
 

@@ -44,7 +44,7 @@ const Box = styled.div`
     height: 40px;
     font-size: 20px;
     text-align: left;
-    color: rgba(255, 255, 255, 0.9);
+    color: #fff;
     background-color: rgba(0, 0, 0, 0.6);
     border: none;
     border-radius: 20px;
@@ -53,14 +53,14 @@ const Box = styled.div`
   }
   & input::placeholder {
     font-size: 20px;
-    color: rgb(250, 250, 250);
+    color: gray;
     padding-left: 0;
   }
   & .juminInput::placeholder {
-    color: gray;
+    color: #fff;
   }
   & .idInput::placeholder {
-    color: gray;
+    color: #fff;
   }
 
   & .finalCheck {
@@ -122,12 +122,65 @@ const Box = styled.div`
     }
   }
 `;
-
+const PwdInputDiv = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: ${({ isValidPwd }) => (isValidPwd ? "flex-end" : "center")};
+  align-items: center;
+  & > .isVaild {
+    width: 20%;
+    display: flex;
+    justify-content: first baseline;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .pwdError {
+      color: red;
+      font-weight: bold;
+      font-size: 8px;
+      margin-top: -9px;
+      padding: 0;
+      position: relative;
+      margin-bottom: -2px;
+    }
+  }
+`;
+const InputPwd = styled.input`
+  width: 60%;
+  height: 40px;
+  font-size: 20px;
+  text-align: left;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 20px;
+  padding-left: 30px;
+  margin-bottom: 30px; /* 원하는 마진 값으로 설정 */
+  &::placeholder {
+    font-size: 20px;
+    color: gray;
+    padding-left: 0;
+  }
+  @media (max-width: 768px) {
+    width: 60%;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: 0.5s;
+    padding-left: 12px;
+  }
+  &::placeholder {
+    font-size: 16px;
+    transition: 0.5s;
+  }
+`;
 const MemInfo = () => {
   const [member, setMember] = useState("");
   const [user_id, setUser_id] = useState("");
   const [user_pw, setUser_pw] = useState("");
   const [passwordError, setPasswordError] = useState();
+  const [isValidPwd, setIsValidPwd] = useState();
   const [user_name, setUser_name] = useState("");
   const [user_nick, setUser_nick] = useState("");
   const [user_phone, setUser_phone] = useState("");
@@ -197,29 +250,28 @@ const MemInfo = () => {
 
   // 패스워드 바꾸기
   const onChangePw = (e) => {
-    const newPw = e.target.value;
-    setUser_pw(newPw);
+    setUser_pw(e.target.value);
 
-    if (!newPw) {
+    if (!e.target.value) {
       // 값을 입력하지 않았을 때 유효성 검사 하지 않음
       setPasswordError("");
+      setIsValidPwd("");
       setUser_pw(member.newPw);
       setIsPassword(true);
       return; // 입력이 없으면 이후 코드 실행 안 함
     }
     // 비밀번호 검증 함수
-    if (validatePassword(newPw)) {
-      setPasswordError("");
-      setIsPassword(true);
-    } else {
-      setPasswordError("영어와 숫자를 포함한 8글자 이상이어야 합니다.");
+    const passwordRegex = /^[A-Za-z0-9]{6,10}$/;
+    if (!passwordRegex.test(e.target.value)) {
+      setPasswordError(
+        "비밀번호 형식이 올바르지 않습니다. (숫자, 영어 조합 6-10자리 이하)"
+      );
       setIsPassword(false);
+    } else {
+      setPasswordError("");
+      setIsValidPwd("✔️");
+      setIsPassword(true);
     }
-  };
-  // 비밀번호 유효성 검증 함수(영어, 숫자 포함 8글자 이상)
-  const validatePassword = (password) => {
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return regex.test(password);
   };
 
   // 닉네임 변경
@@ -284,22 +336,22 @@ const MemInfo = () => {
             disabled
             className="idInput"
           />
+          <PwdInputDiv isValidPwd={isValidPwd}>
+            <InputPwd
+              type="text"
+              name="user_pw"
+              onChange={onChangePw}
+              placeholder={member.user_pw}
+            />
+            {isValidPwd && <span className="isVaild">{isValidPwd}</span>}
+          </PwdInputDiv>
+          {passwordError && <span className="pwdError">{passwordError}</span>}
 
-          <input
-            type="text"
-            name="user_pw"
-            onChange={onChangePw}
-            placeholder={member.user_pw}
-            defaultValue={member.user_pw}
-          />
-
-          {passwordError && <span>{passwordError}</span>}
           <input
             type="text"
             name="user_name"
             onChange={onChangeName}
             placeholder={member.user_name}
-            defaultValue={member.user_name}
           />
           <input
             type="text"
@@ -313,14 +365,12 @@ const MemInfo = () => {
             name="user_nick"
             onChange={onChangeNick}
             placeholder={member.user_nick}
-            defaultValue={member.user_nick}
           />
           <input
             type="text"
             name="user_phone"
             onChange={onChangePhone}
             placeholder={member.user_phone}
-            defaultValue={member.user_phone}
           />
           {phoneError && <span>{phoneError}</span>}
 
@@ -329,7 +379,6 @@ const MemInfo = () => {
             name="user_address"
             onChange={onChangeAddress}
             placeholder={member.user_address}
-            defaultValue={member.user_address}
           />
           <div
             className="finalCheck"
