@@ -8,12 +8,15 @@ import ReactModal from "react-modal";
 import ScoreApi from "../../../api/ScoreApi";
 import ReviewApi from "../../../api/ReviewApi";
 import JjimApi from "../../../api/JjimApi";
+import { IoMdCloseCircle } from "react-icons/io";
+
 ReactModal.setAppElement("#root");
 
 const ItemBox = styled.div`
   width: 1000px;
   height: 170px;
-  display: flex;
+  display: ${({ hidden }) => hidden ? 'none' : 'flex'};
+  flex-wrap: wrap;
   align-items: center;
   justify-content: ${({ itemcenter }) => itemcenter && "center"};
 `;
@@ -98,13 +101,14 @@ const ItemReview = styled.div`
   justify-content: space-between;
   @media (max-width: 1545px) {
     display: ${({ mobliereviewmore }) => (mobliereviewmore ? "flex" : "none")};
-    margin-left: 50px;
-  }
-  @media (max-width: 1040px) {
-    display: ${({ mobliereviewmore }) => (mobliereviewmore ? "flex" : "none")};
-    margin-left: 50px;
+    width:450px;
+    margin-left: 14vw;
   }
   & > .review {
+    display: flex;
+    justify-content: space-between;
+  }
+  & > .reviewText {
     font-size: 20px;
     margin-bottom: 5px;
   }
@@ -156,6 +160,9 @@ const ReviewBtn = styled.div`
   cursor: pointer;
   &:hover {
     color: lightgray;
+  }
+  @media (max-width: 1545px) {
+    margin-left: 300px;
   }
 `;
 const ScoreSelect = styled.select`
@@ -225,6 +232,11 @@ const Morebtnreview = styled.div`
       color: green;
     }
   }
+  @media (max-width: 1545px) {
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 16vw;
+  }
 `;
 // bounce 애니메이션 정의
 const bounce = keyframes`
@@ -240,9 +252,11 @@ const bounce = keyframes`
 `;
 // bounce을 적용할 HeartIcon 정의
 const HeartIcon = styled(FaHeart)`
+  
   cursor: pointer;
   @media (max-width: 1545px) {
     margin-left: 40px;
+    display: ${({ mobliemorerestreview }) => (mobliemorerestreview ? "none" : "flex")};
   }
   @media (max-width: 1070px) {
     display: none;
@@ -319,7 +333,7 @@ const MoblieBtn = styled.div`
   }
   cursor: pointer;
   position: relative;
-  @media (max-width: 1040px) {
+  @media (max-width: 1550px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -334,7 +348,7 @@ const MoblieBtn = styled.div`
 const FaAnglesDownIcon = styled(FaAnglesDown)`
   display: none;
   color: white;
-  @media (max-width: 1040px) {
+  @media (max-width: 1550px) {
     display: flex;
     width: 20px;
     height: 20px;
@@ -348,6 +362,19 @@ const HiddenBtn = styled.div`
   align-items: center;
   justify-content: ${({ reviewmore }) => (reviewmore ? "left" : "right")};
   margin-left: ${({ reviewmore }) => reviewmore && "15vw"};
+`;
+const ReviewCloseBtn = styled(IoMdCloseCircle)`
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+  &:hover {
+    color: rgba(50, 50, 150, 0.8);
+  }
+  @media (max-width: 1545px) {
+    display: flex;
+  }
 `;
 const ListItem = ({
   alcohols,
@@ -391,12 +418,14 @@ const ListItem = ({
   );
   //더보기를 눌렀을 때 나머지 리뷰들 전부 숨김.
   const [morerestreview, setMorerestreview] = useState(false);
-  //리뷰 더보기를 눌렀을 때 해당하는 컴포넌트만 창이 뜸.
+  //리뷰 작성을 눌렀을 때 해당하는 컴포넌트만 창이 뜸.
   const [mobliereviewmore, setMobliereviewmore] = useState(
     new Array(alcohols.length).fill(false)
   );
-  //리뷰 더보기를 눌렀을 때 나머지 리뷰들 전부 숨김.
+  //리뷰 작성을 눌렀을 때 나머지 리뷰들 전부 숨김.
   const [mobliemorerestreview, setMobliemorerestreview] = useState(false);
+  //리뷰 작성을 눌렀을 때 하위 술데이터 숨김.
+  const [hideFromIndex, setHideFromIndex] = useState(null);
   const [jjimData, setJjimData] = useState([]);
   // 추가된 상태 정의: 하트 아이콘이 bouncing 상태인지 추적
   const [bouncingHeart, setBouncingHeart] = useState(null);
@@ -450,7 +479,10 @@ const ListItem = ({
     newReviewInputs[index] = value;
     setReviewInputs(newReviewInputs);
   };
-
+  // ItemBox 토글하는 함수
+  const toggleItemBoxVisibility = (index) => {
+    setHideFromIndex(prev => prev === index + 1 ? null : index + 1);
+  };
   //해당하는 컴포넌트의 리뷰를 등록하는 함수.
   const handleReviewSaveClick = async (index) => {
     const userId = sessionStorage.getItem("user_id");
@@ -575,6 +607,7 @@ const ListItem = ({
       updatedState[index] = true;
       return updatedState;
     });
+    toggleItemBoxVisibility(index);
   };
   // 처음 찜 값을 반영하기 위해 찜 테이블에서 값을 받아오는 함수
   const defaultJjim = async (userId) => {
@@ -643,6 +676,16 @@ const ListItem = ({
       setJjimnullfailModalOpen(true);
     }
   };
+  const reviewCloseOnclickBtn = (index) => {
+    // 모바일 버튼 상태값을 업데이트
+    setMobliereviewmore((prev) => {
+      const updatedState = [...prev];
+      setMobliemorerestreview(false);
+      updatedState[index] = false;
+      return updatedState;
+    });
+    toggleItemBoxVisibility(index);
+  };
   // isOne이 true인 경우 첫 번째 항목만 반환(마이페이지의 첫번째만 출력하는 부분 때문에)
   const displayedAlcohols =
     isOne && alcohols.length > 0 ? [alcohols[0]] : alcohols;
@@ -656,6 +699,8 @@ const ListItem = ({
             buttonvisible={mobliemorerestreview}
             //화면에 정렬하는 부분차이(리스트랑 추천안의 리스트가 다름.)
             itemcenter={itemcenter}
+            //숨길지 말지 결정
+            hidden={hideFromIndex !== null && index >= hideFromIndex}
           >
             <ImageContainer>
               {/* 이미지 넣기 */}
@@ -718,7 +763,7 @@ const ListItem = ({
                     handleMobileBtnClick(index);
                   }}
                 >
-                  <span>리뷰더보기</span>
+                  <span>리뷰작성</span>
                 </MoblieBtn>
                 <FaAnglesDownIcon className="icon" />
               </HiddenBtn>
@@ -728,10 +773,17 @@ const ListItem = ({
               buttonvisible={morerestreview}
               // 더보기 버튼 상태 변수
               buttonon={morebtnonclick[index]}
-              // 모바일 버전 리뷰더보기 버튼 상태 변수
+              // 모바일 버전 리뷰작성 버튼 상태 변수
               mobliereviewmore={mobliereviewmore[index]}
             >
-              <div className="review">Review</div>
+              <div className="review">
+                <div className="reviewText">Review</div>
+                <ReviewCloseBtn
+                  onClick={() => {
+                    reviewCloseOnclickBtn(index);
+                  }}
+                />
+              </div>
               <ReviewValue
                 // 화면에 보여줄지 결정하는 상태 변수
                 reviewinput={reviewinput}
@@ -791,6 +843,7 @@ const ListItem = ({
               </div>
             </Morebtnreview>
             <HeartIcon
+              mobliemorerestreview={mobliemorerestreview}
               size="30"
               color={
                 jjimData.some((jjim) => jjim.alcohol_name === item.alcohol_name)
