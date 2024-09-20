@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "./BackButton";
-import axios from "axios";
 import AxiosApi from "../../api/AxiosApi";
 import { documentId } from "firebase/firestore";
 import ReactModal from "react-modal"; // 모달 적용부분
@@ -190,9 +189,7 @@ const SignupPage = () => {
         setIsEmail(false);
       }
     } catch (error) {
-      setPasswordError(
-        "네트워크 오류입니다. 잠시후 다시 시도해주세요."
-      );
+      setPasswordError("네트워크 오류입니다. 잠시후 다시 시도해주세요.");
     }
   };
   // 주민등록번호 DB 등록여부 확인
@@ -228,10 +225,10 @@ const SignupPage = () => {
   };
   const onChangePassword = (e) => {
     setPassword(e.target.value);
-    const passwordRegex = /^[A-Za-z0-9]{4,10}$/;
+    const passwordRegex = /^[A-Za-z0-9]{6,10}$/;
     if (!passwordRegex.test(e.target.value)) {
       setPasswordError(
-        "비밀번호 형식이 올바르지 않습니다. (숫자, 영어 조합 10자리 이하)"
+        "비밀번호 형식이 올바르지 않습니다. (숫자, 영어 조합 6-10자리 이하)"
       );
       setIsPassword(false);
     } else {
@@ -264,7 +261,7 @@ const SignupPage = () => {
     setPhone(e.target.value);
     const phoneRegex = /^010\d{8}$/;
     if (!phoneRegex.test(e.target.value)) {
-      setPhoneError("입력값이 올바르지 않습니다.");
+      setPhoneError("입력값이 올바르지 않습니다.(-)없이 입력");
       setIsPhone(false);
     } else {
       setPhoneError("✔️");
@@ -275,24 +272,32 @@ const SignupPage = () => {
     setAddress(e.target.value);
     setIsAddress(true);
   };
-  const regist = () => {
+  const regist = async () => {
     // 가입버튼 클릭시 이벤트 처리
-    axios
-      .post("http://192.168.10.26:8111/users/signup", {
-        user_id: email,
-        user_pw: password,
-        user_name: userName,
-        user_jumin: jumin,
-        user_nick: nickName,
-        user_phone: phone,
-        user_address: address,
-      })
-      .then((response) => {
-        // Handle success.
-        setSuccessModalOpen(true); // Show success modal
-        // navigate("/");
-      })
-      .catch((error) => {
+    if (
+      isEmail &&
+      isPassword &&
+      isUserName &&
+      isJumin &&
+      isNickName &&
+      isPhone &&
+      isAddress
+    ) {
+      try {
+        const response = await AxiosApi.signup(
+          email,
+          password,
+          userName,
+          jumin,
+          nickName,
+          phone,
+          address
+        );
+        if (response.status === 200) {
+          setModalContent("회원가입이 완료되었습니다!");
+          setSuccessModalOpen(true);
+        }
+      } catch (error) {
         if (error.response) {
           // 서버가 응답했지만 상태 코드가 2xx 범위를 벗어나는 경우
           switch (error.response.status) {
@@ -331,7 +336,11 @@ const SignupPage = () => {
           setModalContent(`오류가 발생했습니다: ${error.message}`);
         }
         setFailModalOpen(true);
-      });
+      }
+    } else {
+      setModalContent("모든 필드를 올바르게 입력해주세요.");
+      setFailModalOpen(true);
+    }
   };
   // 모든 필드의 유효성 검사를 통과했는지 확인
   const isFormValid =
@@ -360,7 +369,7 @@ const SignupPage = () => {
           )}
         </span>
         <input
-          type="text"
+          type="password"
           placeholder="비밀번호"
           value={password}
           onChange={onChangePassword}

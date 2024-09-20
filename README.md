@@ -1,6 +1,6 @@
-# 1. 주제
+# 1. 🍺주제
 
-### 디오니소스 : 주류 추천 사이트
+### 🍇디오니소스 : 주류 추천 사이트🍇
 
 ---
 
@@ -8,7 +8,7 @@
 - 전통주, 와인, 위스키, 맥주, 인기 있는 주류 조회
 - 개인에게 맞는 주류를 추천
 
-# 2. 개발 환경
+# 2. 🤸🏻‍♀️개발 환경🤸🏻‍♀️
 
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 
@@ -45,7 +45,7 @@
 - Rest API
 - FeedBack
 
-### 🪖김세호🪖 - DT(Development Team)
+### 🧙🏻‍♀️김세호🧙🏻‍♀️ - DT(Development Team)
 
 - 문서 정리 & 노션 관리
 - 초기 데이터 추가 & 정리
@@ -55,51 +55,154 @@
 
 # 4. 🗓️*일정* 🗓️
 
-[Agile Scrum](https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
+[Agile_Scrum](https://www.notion.so/e01066cfc5b64669bf12390afacc77ed?pvs=21)
 
 [Sprint Scheduler](https://docs.google.com/spreadsheets/d/1PHxGOc3YHsZqQTuzGfzHkA2f34ExoHbKAJ8qmyVLs-0/edit#gid=1115838130)
 
 ---
 # 5 . 📚전체 데이터 스프레드시트📚
 
-[](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
+[Data Sheet](https://docs.google.com/spreadsheets/d/1VF7l8Nvg43eT3B1OLv-7MJTRUKUEgF9iAmHzgCEuKWk/edit?usp=sharing)
 
+## 🏉스프린트🏉
 
-## 술 Data
+### 1 차 스프린트
 
+- 테스트
     
+    ---
+    
+    UI 폰트, 크기, 기능 버젼 테스트
+    
+    ---
+    
+    로그인 후 기능 테스트
+    
+    ---
+    
+    모바일 버전 테스트
+    
+    ---
+    
+- 피드백
+    
+    ---
+    
+    오작동 기능 수정, 코드 주석
+    
+    ---
+    
+    추가 api에 대한 기능 회의
+    
+    ---
+    
+    모바일 버전 화면 깨짐 수정
+    
+    ---
+    
+
+### 2차 스프린트
+
+- 테스트
+    
+    ---
+    
+    로봇 Api, 날씨 Api 테스트
+    
+    ---
+    
+    UI 웹, 모바일 테스트
+    
+    ---
+    
+    리스트별 기능 테스트
+    
+    ---
+    
+- 피드백
+    
+    ---
+    
+    디테일한 UI 기능 수정
+    
+    ---
+    
+    에러 처리, 접근권한 기능 추가
+    
+    ---
+    
+    모바일 버전 화면 배치 재수정
+    
+    ---
+    
+
+### 3차 스프린트(최종)
+
+- 테스트
+    
+    ---
+    
+    로봇 Api, 날씨 Api 테스트
+    
+    ---
+    
+    UI 웹, 모바일 테스트
+    
+    ---
+    
+    리스트별 기능 테스트
+    
+    ---
+    
+    IP주소 연결 후 테스트
+    
+    ---
+    
+    FireBase 프로필 사진 연계
+    
+    ---
+    
+- 피드백
+    
+    ---
+    
+    디테일한 UI 기능 수정
+    
+    ---
+    
+    API 에러 처리
+    
+    ---
+
+
+# 6. 🌈메뉴 트리🌈
+
+![image](https://github.com/user-attachments/assets/27be98ca-e174-4660-87fa-96e471ec7fbb)
+
+
+# 6. 🌈스토리 보드🌈
+
+![캡처](https://github.com/Leegyeongseob/Dionysus-PR-Front-End/assets/67867076/3d1ba99a-ab2f-4f22-9f77-b26c72de2990)
+
+# 7. 🍷술 Data🍷
+
 [Wine Dataset](https://www.kaggle.com/datasets/elvinrustam/wine-dataset?select=WineDataset.csv)
     
 [문화빅데이터 플랫폼](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=0853628f-1747-4bda-b568-264305728a8e)
     
-[[사케마츠리] 히란 니코마루 QUEEN 720미리 日鸞 にこまる QUEEN 720ml](https://sake4ke.com/products/detail/5061#)
+[사케전문샾](https://sake4ke.com/products/detail/5061#)
     
 [(주)에스엠바로코사부산](http://b2bsmglobal.com/sub/product_list.php?p_code=11)
     
 [월드비어마켓](https://worldbeermarket.kr/)
     
 [벨루가 - 주류 정보 플랫폼](https://business.veluga.kr/)
-    
 
-## UI 참고
+# 7. 🐮구현영상🐮
 
-[Lotte Wine](https://www.wine.co.kr/search/wine-search)
+[웹페이지 구현영상](https://www.notion.so/7be4747141a840a6874028644fed818a)
 
-[전체와인 - 와인21닷컴](https://www.wine21.com/13_search/wine_list.html)
-
-[미스터와인 와인샵](https://mr-wine.co.kr/)
-
-[LET'S DO WINE - 레츠두 와인](https://www.letsdowine.co.kr/?NaPm=ct=lvw4pqag|ci=0za00017TxzAIReSleW-|tr=sa|hk=01e9954370691f1cbb8a87b10ad08802fa90785d)
-
-## 스토리 보드
-
-![캡처](https://github.com/Leegyeongseob/Dionysus-PR-Front-End/assets/67867076/3d1ba99a-ab2f-4f22-9f77-b26c72de2990)
-
-## 구현영상
-
-
-
-## 피드백
+# 8. ⚔️피드백⚔️
 
 - 에자일 스크럼 방법론으로 개발에 임했지만 React를 배우긴 했지만 개발을 처음 해보고 Restfull Api 비동기 통신이 생각보다 오래 걸려서 3차 스프린트까지 했던 계획했지만 2차 스프린트에서 종료해야 했습니다.
   

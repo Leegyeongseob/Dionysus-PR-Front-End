@@ -49,8 +49,8 @@ const ImgChangeBtnsDiv = styled.div`
   align-items: center;
   margin-bottom: 20px;
   z-index: 5;
-  @media (max-width: 1140px) {
-    display: none;
+  @media (max-width: 768px) {
+    display: flex;
   }
 `;
 
